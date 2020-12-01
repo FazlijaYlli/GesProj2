@@ -4,7 +4,6 @@
 -- * DB-MAIN version: 11.0.1              
 -- * Generator date: Dec  4 2018              
 -- * Generation date: Tue Dec  1 14:40:52 2020 
--- * LUN file: F:\01-projets-SSD\P_GesProj2\GesProj2\temp\db_gesproj2_grp2.lun 
 -- * Schema: db_gesproj2_grp2/mld 
 -- ********************************************* 
 
