@@ -38,7 +38,7 @@ function brandFilter() {
         // Loop through all list items, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
     
-            td = tr[i].getElementsByTagName("td")[2];
+            td = tr[i].getElementsByTagName("td")[1];
     
             if (td) {
               text = td.textContent || td.innerText;
@@ -76,7 +76,7 @@ function constructorFilter() {
         // Loop through all list items, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
     
-            td = tr[i].getElementsByTagName("td")[1];
+            td = tr[i].getElementsByTagName("td")[0];
     
             if (td) {
               text = td.textContent || td.innerText;
