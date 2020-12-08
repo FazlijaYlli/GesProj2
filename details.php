@@ -1,49 +1,50 @@
-<?php 
-$localhost="10.228.156.190";
-$dbName="db_gesproj2_grp2";
-$dbuser="GesProj2";
-//GesProj2
-$dbpassword="GesProj2";
-$connector = new PDO('mysql:host=' . $localhost .';dbname='. $dbName .';charset=utf8', ''. $dbuser .'', '' .$dbpassword );
+<?php
+include "database.php";
+$database = new Database();
+$printers = $database->getAllPrinters();
+$printerid = $database->getOnePrinter($printers[0]["idImprimante"]);
 
 
-function getIdPrinter($id){
-$query= "SELECT FROM t_imprimante WHERE idImprimante=$id";
-$result=$this->prepare($query);
-$this->execute($result);
-$result=$this->fetchall(PDO::FETCH_ASSOC);
-
-return $result;
-
-}
-
-echo '<a href="printDetails.php?Idimprimante=' . $printer[0]['idImprimante'] .'">Details</a>';
-
-
-
-var_dump($printer);
-
-/**
- * affichage des des détails
- */
-foreach ($printer as $printers){
-
-    
-    echo $printer[0]["impFabriquant"];
-    echo $printer[0]["impMarque"];
-    echo $printer[0]["impModele"];
-    echo $printer[0]["impTechImpression"];
-    echo $printer[0]["impVitesseImpression"];
-    echo $printer[0]["impCapaciteBac"];
-    echo $printer[0]["impPoids"];
-    echo $printer[0]["impResolutionX"];
-    echo $printer[0]["impResolutionY"];
-    echo $printer[0]["impLongueur"];
-    echo $printer[0]["impLargeur"];
-    echo $printer[0]["impHauteur"];
-    echo $printer[0]["impPrix"];
-    echo $printer[0]["impFabriquant"];
-
-
-} 
 ?>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>détails</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="d-flex col">
+        <div class="card" style="width: 20rem;">
+            <div class="text-center"> images de l'imprimante </div>
+            <div class="card-body">
+                descritipion de imprimante
+            </div>
+        </div>
+    </div>
+    <div class="d-flex col">
+    <div class="card" style="width: 20rem;">
+        
+            <div class="card-body">
+                descritipion des composants
+            </div>
+        </div>
+    </div>
+
+
+
+ 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
