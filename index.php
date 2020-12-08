@@ -31,7 +31,7 @@
 
     <div class="input-group mb-2">
         <div class="input-group-prepend" style="min-width: 200px;">
-            <div class="input-group-text" style="min-width: 200px;">Nom</div>
+            <div class="input-group-text" style="min-width: 200px;">Modèle</div>
         </div>
         <input type="text" class="form-control" id="nameFilter" onkeyup="filterByColumn(2)" placeholder="Recherche par nom ...">
     </div>
@@ -109,6 +109,7 @@
             $(document).ready(function() {
                 $('#printer-table').DataTable( {   
                     "searching": false,
+					"paging": false,
                     language: {
                         url: 'json/fr_fr.json'
                     }
