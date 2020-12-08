@@ -1,20 +1,15 @@
 <?php
+/**
+ * ETML
+ * Auteur : Adrian Barreira Romero
+ * Date: 22.01.2019
+ * Recueil des méthodes permettant de charger les données pour les clients
+ */
 
-/** Lieu      : ETML
-* Auteur      : Grp2
-* Date        : 08.12.2020
-* Description : Page config
-*/
-
-$MM_CONFIG = array(
-    "database" => array (
-        "dbname" => "db_gesproj2_grp2",
-        "username" => "root",
-        "password" => "root",
-        "host" => "localhost",
-        "port" => "3306",
-        "charset" => "utf8"
-    )
-);
+define('SQL_HOST', 'inf-n101-m614');
+define('SQL_DBNAME', 'db_gesproj2_grp2');
+define('SQL_CHARSET', 'utf8');
+define('SQL_USERNAME', 'GesProj2');
+define('SQL_PASSWORD', 'GesProj2');
 
 ?>
