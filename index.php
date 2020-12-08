@@ -9,7 +9,7 @@
     <title>Page d'accueil</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
 
     <!-- Lieu    : ETML
      Auteur      : Grp2
@@ -20,6 +20,7 @@
 </head>
  
 <body class="p-5">
+    
     <?php
         include("Database.php");
 
@@ -28,8 +29,36 @@
         $printers = $database->getAllPrinters();
     ?>
 
+    <div class="input-group mb-2">
+        <div class="input-group-prepend" style="min-width: 200px;">
+            <div class="input-group-text" style="min-width: 200px;">Modèle</div>
+        </div>
+        <input type="text" class="form-control" id="nameFilter" onkeyup="filterByColumn(2)" placeholder="Recherche par nom ...">
+    </div>
+
+    <div class="input-group mb-2">
+        <div class="input-group-prepend" style="min-width: 200px;">
+            <div class="input-group-text" style="min-width: 200px;">Marque</div>
+        </div>
+        <select class="form-control" id="brandFilter" onchange="brandFilter()" onkeyup="brandFilter()">
+            <option value="null">Choisir ...</option>
+            <option>Brother</option>
+        </select>
+    </div>
+
+    <div class="input-group mb-5">
+        <div class="input-group-prepend" style="min-width: 200px;">
+            <div class="input-group-text" style="min-width: 200px;">Constructeur</div>
+        </div>
+        <select class="form-control" id="constructorFilter" onchange="constructorFilter()" onkeyup="constructorFilter()">
+            <option value="null">Choisir ...</option>
+            <option>Jérémie Bussy</option>
+        </select>
+    </div>
+
+
     <h1>Imprimantes</h1>
-    <table id="example" class="table table-striped table-bordered" style="width:100%">
+    <table id="printer-table" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>Fabriquant</th>
@@ -69,18 +98,25 @@
             ?>
         </tbody>
     </table>
-    
-    <footer>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+
+    </footer>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+        <script src="js/filters.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $('#example').DataTable();
-                $('#example_filter').addClass('float-right');
+                $('#printer-table').DataTable( {   
+                    "searching": false,
+					"paging": false,
+                    language: {
+                        url: 'json/fr_fr.json'
+                    }
+                }
+                );
             } );
         </script>
-    </footer>
+    <footer>
 </body>
 </html>

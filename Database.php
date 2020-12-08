@@ -5,7 +5,7 @@
  * Date: 08.12.2020
  * Recueil des méthodes permettant de charger les données pour les clients
  */
-include_once 'Config.php';
+include_once 'config.ini.php';
 
 class Database {
 
