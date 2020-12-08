@@ -40,7 +40,9 @@ class Database {
         $connector = null;
         return $result;
     }
-    
+    /**
+     * Prepare et execute une requete
+     */
     private function queryPrepareExecute($query, $binds){
         
         $req = $this->connector->prepare($query);
@@ -56,9 +58,7 @@ class Database {
 
         return $req;
     }
-    /**
-     * Prepare et execute une requete
-     */
+    
     /**
      * Formater les resultats
      */
@@ -99,8 +99,8 @@ class Database {
     }
 
     /**
-     */
      * Récupérer les informations pour 1 imprimante
+     */
     public function getOnePrinter($id){
 
         // TODO: avoir la requête sql pour 1 imprimante (utilisation de l'id)
