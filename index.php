@@ -27,6 +27,11 @@
         $database = new Database();
 
         $printers = $database->getAllPrinters();
+
+        $brands = $database->getDistinctBrands();
+
+        $constructors = $database->getDistinctConstructors();
+
     ?>
 
     <div class="input-group mb-2">
@@ -42,7 +47,11 @@
         </div>
         <select class="form-control" id="brandFilter" onchange="brandFilter()" onkeyup="brandFilter()">
             <option value="null">Choisir ...</option>
-            <option>Brother</option>
+            <?php
+            foreach($brands as $brand) {
+                echo "<option>" . $brand['impMarque'] . "</option>";
+            }
+            ?>
         </select>
     </div>
 
@@ -52,7 +61,11 @@
         </div>
         <select class="form-control" id="constructorFilter" onchange="constructorFilter()" onkeyup="constructorFilter()">
             <option value="null">Choisir ...</option>
-            <option>Jérémie Bussy</option>
+            <?php
+            foreach($constructors as $constructor) {
+                echo "<option>" . $constructor['impFabriquant'] . "</option>";
+            }
+            ?>
         </select>
     </div>
 
