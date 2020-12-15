@@ -104,7 +104,35 @@ class Database {
     public function getOnePrinter($id){
 
         // TODO: avoir la requête sql pour 1 imprimante (utilisation de l'id)
-        $query = "SELECT * FROM t_imprimantes where idImprimantes = $id";
+        $query = "SELECT * FROM t_imprimante where idImprimantes = $id";
+
+        $req = $this->queryPrepareExecute($query, null);
+        // TODO: appeler la méthode pour executer la requête
+
+        // TODO: appeler la méthode pour avoir le résultat sous forme de tableau
+
+        $result = $this->formatData($req);
+        // TODO: retour l'imprimante
+        return $result;
+    }
+
+    public function getDistinctBrands() {
+        // TODO: avoir la requête sql pour 1 imprimante (utilisation de l'id)
+        $query = "SELECT DISTINCT impMarque FROM t_imprimante";
+
+        $req = $this->queryPrepareExecute($query, null);
+        // TODO: appeler la méthode pour executer la requête
+
+        // TODO: appeler la méthode pour avoir le résultat sous forme de tableau
+
+        $result = $this->formatData($req);
+        // TODO: retour l'imprimante
+        return $result;
+    }
+
+    public function getDistinctConstructors() {
+        // TODO: avoir la requête sql pour 1 imprimante (utilisation de l'id)
+        $query = "SELECT DISTINCT impFabriquant FROM t_imprimante";
 
         $req = $this->queryPrepareExecute($query, null);
         // TODO: appeler la méthode pour executer la requête
