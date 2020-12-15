@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Page d'accueil</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -18,24 +18,23 @@
     -->
 
 </head>
- 
-<body class="p-5">
-    
+
+<body class="p-5 bg-light">
+
     <?php
-        include("Database.php");
+    include("Database.php");
 
-        $database = new Database();
+    $database = new Database();
 
-        $printers = $database->getAllPrinters();
-
-        $brands = $database->getDistinctBrands();
-
-        $constructors = $database->getDistinctConstructors();
-
+    $printers = $database->getAllPrinters();
     ?>
-
-    <div class="input-group mb-2">
-        <div class="input-group-prepend" style="min-width: 200px;">
+    <header>
+        <div class="jumbotron bg-dark">
+            <h1 class="text-white" style="font-size: 150px;"> TopPrinter</h1>
+        </div>
+    </header>
+    <div class="input-group mb-2 ">
+        <div class="input-group-prepend " style="min-width: 200px;">
             <div class="input-group-text" style="min-width: 200px;">Modèle</div>
         </div>
         <input type="text" class="form-control" id="nameFilter" onkeyup="filterByColumn(2)" placeholder="Recherche par nom ...">
@@ -47,11 +46,7 @@
         </div>
         <select class="form-control" id="brandFilter" onchange="brandFilter()" onkeyup="brandFilter()">
             <option value="null">Choisir ...</option>
-            <?php
-            foreach($brands as $brand) {
-                echo "<option>" . $brand['impMarque'] . "</option>";
-            }
-            ?>
+            <option>Brother</option>
         </select>
     </div>
 
@@ -61,11 +56,7 @@
         </div>
         <select class="form-control" id="constructorFilter" onchange="constructorFilter()" onkeyup="constructorFilter()">
             <option value="null">Choisir ...</option>
-            <?php
-            foreach($constructors as $constructor) {
-                echo "<option>" . $constructor['impFabriquant'] . "</option>";
-            }
-            ?>
+            <option>Jérémie Bussy</option>
         </select>
     </div>
 
@@ -112,7 +103,27 @@
         </tbody>
     </table>
 
-    </footer>
+    <footer class="bg-dark">
+
+        <div class="container-fluid py-3">
+            <div class="row">
+                <div class="col-md-3 text-white">
+                    <h5>ETML</h5>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 text-white">site conçu par groupe 2 <span class="small"><br>Hugo ducommun
+                        , Ylli Fazlia
+                        , Jérémie Bussy
+                        <br> Adrian Barreira
+                         et Miliran Ponniah</span></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3 text-right text-white small align-self-end">©2020 ETML</div>
+            </div>
+        </div>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
@@ -120,16 +131,16 @@
         <script src="js/filters.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $('#printer-table').DataTable( {   
+                $('#printer-table').DataTable({
                     "searching": false,
-					"paging": false,
+                    "paging": false,
                     language: {
                         url: 'json/fr_fr.json'
                     }
-                }
-                );
-            } );
+                });
+            });
         </script>
-    <footer>
+    </footer>
 </body>
+
 </html>
