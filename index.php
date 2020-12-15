@@ -35,7 +35,7 @@
     ?>
     <header>
         <div class="jumbotron bg-dark">
-            <h1 class="text-white" style="font-size: 150px;"> TopPrinter</h1>
+            <h1 class="text-white" style="font-size: 72pt;"> TopPrinter</h1>
         </div>
     </header>
 	
