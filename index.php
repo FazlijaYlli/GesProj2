@@ -38,28 +38,10 @@
             <h1 class="text-white" style="font-size: 150px;"> TopPrinter</h1>
         </div>
     </header>
-    <div class="input-group mb-2 ">
-        <div class="input-group-prepend " style="min-width: 200px;">
-            <div class="input-group-text" style="min-width: 200px;">Modèle</div>
-        </div>
-        <input type="text" class="form-control" id="nameFilter" onkeyup="filterByColumn(2)" placeholder="Recherche par nom ...">
-    </div>
+	
+    <h1>Filtres</h1>
 
     <div class="input-group mb-2">
-        <div class="input-group-prepend" style="min-width: 200px;">
-            <div class="input-group-text" style="min-width: 200px;">Marque</div>
-        </div>
-        <select class="form-control" id="brandFilter" onchange="brandFilter()" onkeyup="brandFilter()">
-            <option value="null">Choisir ...</option>
-            <?php
-            foreach($brands as $brand) {
-                echo "<option>" . $brand['impMarque'] . "</option>";
-            }
-            ?>
-        </select>
-    </div>
-
-    <div class="input-group mb-5">
         <div class="input-group-prepend" style="min-width: 200px;">
             <div class="input-group-text" style="min-width: 200px;">Constructeur</div>
         </div>
@@ -72,13 +54,34 @@
             ?>
         </select>
     </div>
+	
+	<div class="input-group mb-2">
+        <div class="input-group-prepend" style="min-width: 200px;">
+            <div class="input-group-text" style="min-width: 200px;">Marque</div>
+        </div>
+        <select class="form-control" id="brandFilter" onchange="brandFilter()" onkeyup="brandFilter()">
+            <option value="null">Choisir ...</option>
+            <?php
+            foreach($brands as $brand) {
+                echo "<option>" . $brand['impMarque'] . "</option>";
+            }
+            ?>
+        </select>
+    </div>
+	
+	<div class="input-group mb-5">
+        <div class="input-group-prepend " style="min-width: 200px;">
+            <div class="input-group-text" style="min-width: 200px;">Modèle</div>
+        </div>
+        <input type="text" class="form-control" id="nameFilter" onkeyup="filterByColumn(2)" placeholder="Recherche par nom ...">
+    </div>
 
 
     <h1>Imprimantes</h1>
     <table id="printer-table" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Fabriquant</th>
+                <th>Constructeur</th>
                 <th>Marque</th>
                 <th>Modèle</th>
                 <th>Technologie d'impression</th>
